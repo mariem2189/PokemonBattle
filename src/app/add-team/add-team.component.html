@@ -1,0 +1,27 @@
+<form [formGroup]="teamForm" (ngSubmit)="onSubmit()">
+  <div>
+    <label for="team_name">Team Name</label>
+    <input id="team_name" formControlName="team_name" placeholder="Enter Team Name" />
+    <div *ngIf="teamForm.get('team_name')?.invalid && teamForm.get('team_name')?.touched">
+      Team name is required.
+    </div>
+  </div>
+
+  <div>
+    <label for="pokemon">Select Pokémon</label>
+    <div *ngFor="let pokemon of pokemons; let i = index">
+      <label>
+        <input
+          type="checkbox"
+          [value]="pokemon.id"
+          (change)="addPokemon(pokemon.id)" />
+        {{ pokemon.name }}
+      </label>
+    </div>
+    <div *ngIf="pokemonIds.length === 6">
+      You have selected exactly 6 Pokémon.
+    </div>
+  </div>
+
+  <button type="submit" [disabled]="teamForm.invalid || pokemonIds.length !== 6">Create Team</button>
+</form>

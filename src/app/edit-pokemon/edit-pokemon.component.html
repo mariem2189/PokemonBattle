@@ -1,0 +1,27 @@
+<div class="container mt-4">
+    <h2>Edit Pokemon</h2>
+    <form [formGroup]="pokemonForm" (ngSubmit)="onSubmit()">
+      <div class="mb-3">
+        <label for="name" class="form-label">Name</label>
+        <input id="name" formControlName="name" class="form-control">
+      </div>
+      <div class="mb-3">
+        <label for="type_id" class="form-label">Type ID</label>
+        <input id="type_id" formControlName="type_id" class="form-control" type="number">
+      </div>
+      <div class="mb-3">
+        <label for="image" class="form-label">Image URL</label>
+        <input id="image" formControlName="image" class="form-control">
+      </div>
+      <div class="mb-3">
+        <label for="power" class="form-label">Power</label>
+        <input id="power" formControlName="power" class="form-control" type="number">
+      </div>
+      <div class="mb-3">
+        <label for="life" class="form-label">Life</label>
+        <input id="life" formControlName="life" class="form-control" type="number">
+      </div>
+      <button type="submit" class="btn btn-primary">Update</button>
+    </form>
+  </div>
+  

@@ -1,0 +1,21 @@
+<div class="container mt-4">
+  <h2>Battle Between Teams</h2>
+  <form [formGroup]="battleForm" (ngSubmit)="onSubmit()">
+    <div>
+      <label for="teamA">Team A:</label>
+      <input id="teamA" formControlName="teamA" />
+    </div>
+    <div>
+      <label for="teamB">Team B:</label>
+      <input id="teamB" formControlName="teamB" />
+    </div>
+    <button type="submit" [disabled]="battleForm.invalid">Start Battle</button>
+  </form>
+
+  <div *ngIf="result" class="mt-4">
+    <h3>Battle Result: {{ result.winner }}</h3>
+    <ul>
+      <li *ngFor="let log of result.details">{{ log }}</li>
+    </ul>
+  </div>
+</div>

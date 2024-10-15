@@ -1,0 +1,20 @@
+<div class="container mt-4">
+    <h2>My Favorite Pokemons</h2>
+    <div class="row">
+      <div class="col-md-4" *ngFor="let pokemon of pokemons">
+        <div class="card mb-4">
+          <img [src]="'https://img.pokemondb.net/artwork/large/' + pokemon.image" class="card-img-top" alt="{{ pokemon.name }}">
+          <div class="card-body">
+            <h5 class="card-title">{{ pokemon.name }}</h5>
+            <p class="card-text">Type ID: {{ pokemon.type_id }}</p>
+            <p class="card-text">Power: {{ pokemon.power }}</p>
+            <p class="card-text">Life: {{ pokemon.life }}</p>
+            <div>
+              <button (click)="editPokemon(pokemon.id)">Edit</button>
+              <button (click)="deletePokemon(pokemon.id)">Delete</button>             
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
